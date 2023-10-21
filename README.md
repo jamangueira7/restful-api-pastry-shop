@@ -112,7 +112,11 @@ Retorno
 }
 ```
 
+- **`DELETE api/client/id`**: Rota deletar um cliente;
+
 - **`GET api/products`**: Rota listar produtos;
+- 
+- **`POST api/products`**: Rota restaurar produtos;
 
 Retorno
 ```
@@ -153,6 +157,11 @@ Retorno
   "deleted_at":null
 }
 ```
+
+- **`DELETE api/product/id`**: Rota deletar um produto;
+
+- **`POST api/product/id`**: Rota restaurar um produto;
+
 
 ## 🤔 Como contribuir
 
