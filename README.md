@@ -15,7 +15,7 @@
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-- [PHP](https://www.php.net/) 8.2.11
+  - [PHP](https://www.php.net/) 8.2.11
   - [MySQL](https://pt-br.reactjs.org/) 8.2.11
   - [Docker](https://www.docker.com/) 24.0.6
   - [Laravel](https://laravel.com/) 10.28.0
@@ -65,29 +65,92 @@ As tabelas devem conter as seguintes informações:
   - Clone o projeto.
   - Entre no repositório.
   - Rode `docker-compose up -d --build`
+  - Rode `php artisan `
 
 ## 👩🏿‍💻 Rotas
 
-- **`POST auth/register`**: Rota crair um usuario;
-  Envio
-```
-{
-    "name": "João",
-    "email": "joao3@joao.com",
-    "password": "123456"
-}
+- **`GET api/clients`**: Rota listar clientes;
 
+Retorno
 ```
+[
+  {
+    "id":"0a348bdd-99b2-3ae4-9d9a-ab94b5a05370",
+    "name":"NewellBechtelar",
+    "email":"igerhold@example.org",
+    "phone":"15035296454",
+    "birthday":"2005-04-26",
+    "address":"Hills Row",
+    "complement":"203",
+    "neighborhood":"port",
+    "zipcode":"03195-297",
+    "created_at":"2023-10-21T22:17:10.000000Z",
+    "updated_at":"2023-10-21T22:17:10.000000Z",
+    "deleted_at":null
+  }
+]
+```
+
+
+- **`GET api/client/id`**: Rota listar um cliente;
+
 Retorno
 ```
 {
-    "user": {
-        "_id": "6020684de0458a0c6c2ceaf6",
-        "name": "João",
-        "email": "joao4@joao.com",
-        "createdAt": "2021-02-07T22:23:09.011Z",
-        "__v": 0
-    }
+  "id":"08f9357b-b3b5-3072-a30b-99412593a2c1",
+  "name":"Mabelle Franecki",
+  "email":"runolfsdottir.kathleen@example.com",
+  "phone":"14243894998",
+  "birthday":"1999-04-03",
+  "address":"Francis Lakes",
+  "complement":"68364",
+  "neighborhood":"furt",
+  "zipcode":"03195-296",
+  "created_at":"2023-10-21T22:08:11.000000Z",
+  "updated_at":"2023-10-21T22:08:11.000000Z",
+  "deleted_at":null
+}
+```
+
+- **`GET api/products`**: Rota listar produtos;
+
+Retorno
+```
+[
+   {
+      "id":"21fb9406-eb79-38c8-9709-cb8c3351f848",
+      "name":"Frango Mussarela",
+      "price":"9.23",
+      "photo":"pastel1.jpg",
+      "created_at":"2023-10-21T22:17:10.000000Z",
+      "updated_at":"2023-10-21T22:17:10.000000Z",
+      "deleted_at":null
+   },
+   {
+      "id":"3978c019-dd08-362c-b07a-65bb8ed3ee9a",
+      "name":"Frango Cheddar",
+      "price":"13.72",
+      "photo":"pastel0.jpg",
+      "created_at":"2023-10-21T22:17:10.000000Z",
+      "updated_at":"2023-10-21T22:17:10.000000Z",
+      "deleted_at":null
+   }
+]
+```
+
+
+- **`GET api/product/id`**: Rota listar um produto;
+
+Retorno
+```
+{
+  "id":"1584461c-eff5-3993-bdb3-85a670f23019",
+  "name":"Frango Cheddar",
+  "price":"10.06",
+  "photo":"pastel1.jpg",
+  "created_at":"2023-10-21T22:08:11.000000Z",
+  "updated_at":"2023-10-21T22:08:11.000000Z",
+  "deleted_at":null
 }
 ```
 
