@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -31,3 +32,7 @@ Route::delete('/product/{id}', [ProductController::class, 'delete']);
 Route::patch('/product/{id}', [ProductController::class, 'restore']);
 Route::post('/product', [ProductController::class, 'create']);
 Route::post('/product/{id}', [ProductController::class, 'update']);
+
+
+Route::get('/order/{client_id}', [OrderController::class, 'list']);
+Route::post('/order', [OrderController::class, 'create']);

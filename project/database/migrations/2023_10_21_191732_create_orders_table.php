@@ -13,9 +13,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->uuid('id')->primary()->autoIncrement();
-            $table->string('name', 200);
-            $table->decimal('price');
-            $table->text('photo');
+            $table->decimal('total');
             $table->uuid('client_id');
             $table->timestamps();
             $table->softDeletes();

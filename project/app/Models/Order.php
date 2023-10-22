@@ -14,6 +14,11 @@ class Order extends Model
     use SoftDeletes;
     use HasUuids;
 
+    protected $fillable = [
+        "total",
+        "client_id"
+    ];
+
     protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
 
     public function Products(): BelongsToMany

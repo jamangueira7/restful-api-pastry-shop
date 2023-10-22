@@ -353,6 +353,110 @@ Retorno
 }
 ```
 
+- **`POST api/order/id`**: Rota criar um pedido;
+
+Enviar
+```
+{
+    "client_id": "0f2292fd-9f74-35f1-be8c-3a0926c109d8",
+    "products": [
+        "17078cd9-28d9-327d-9240-ee167b09f8d0", 
+        "1e859d39-c103-3586-afb9-7fda729ed344", 
+        "24e43180-92d7-3298-97b9-e5d11669a39c"
+    ]
+}
+```
+
+Retorno
+```
+{
+    "Order": {
+        "client_id": "0f2292fd-9f74-35f1-be8c-3a0926c109d8",
+        "total": 34.42,
+        "id": "9a6e72fc-a176-461f-be17-99b107ba597b",
+        "products": [
+            {
+                "id": "17078cd9-28d9-327d-9240-ee167b09f8d0",
+                "name": "Carne Mussarela",
+                "price": "13.56",
+                "photo": "pastel0.jpg",
+                "pivot": {
+                    "order_id": "9a6e72fc-a176-461f-be17-99b107ba597b",
+                    "product_id": "17078cd9-28d9-327d-9240-ee167b09f8d0"
+                }
+            },
+            {
+                "id": "1e859d39-c103-3586-afb9-7fda729ed344",
+                "name": "Carne Cheddar",
+                "price": "10.42",
+                "photo": "pastel0.jpg",
+                "pivot": {
+                    "order_id": "9a6e72fc-a176-461f-be17-99b107ba597b",
+                    "product_id": "1e859d39-c103-3586-afb9-7fda729ed344"
+                }
+            },
+            {
+                "id": "24e43180-92d7-3298-97b9-e5d11669a39c",
+                "name": "Queijo Mussarela",
+                "price": "10.44",
+                "photo": "pastel0.jpg",
+                "pivot": {
+                    "order_id": "9a6e72fc-a176-461f-be17-99b107ba597b",
+                    "product_id": "24e43180-92d7-3298-97b9-e5d11669a39c"
+                }
+            }
+        ]
+    }
+}
+```
+
+- **`GET api/order/id`**: Rota listar pedidos de um cliente;
+
+Retorno
+```
+{
+    "Orders": [
+        {
+            "id": "9a6e6d32-03be-4080-8c2e-9b59703a9956",
+            "total": "34.42",
+            "client_id": "0f2292fd-9f74-35f1-be8c-3a0926c109d8",
+            "products": [
+                {
+                    "id": "17078cd9-28d9-327d-9240-ee167b09f8d0",
+                    "name": "Carne Mussarela",
+                    "price": "13.56",
+                    "photo": "pastel0.jpg",
+                    "pivot": {
+                        "order_id": "9a6e6d32-03be-4080-8c2e-9b59703a9956",
+                        "product_id": "17078cd9-28d9-327d-9240-ee167b09f8d0"
+                    }
+                },
+                {
+                    "id": "1e859d39-c103-3586-afb9-7fda729ed344",
+                    "name": "Carne Cheddar",
+                    "price": "10.42",
+                    "photo": "pastel0.jpg",
+                    "pivot": {
+                        "order_id": "9a6e6d32-03be-4080-8c2e-9b59703a9956",
+                        "product_id": "1e859d39-c103-3586-afb9-7fda729ed344"
+                    }
+                },
+                {
+                    "id": "24e43180-92d7-3298-97b9-e5d11669a39c",
+                    "name": "Queijo Mussarela",
+                    "price": "10.44",
+                    "photo": "pastel0.jpg",
+                    "pivot": {
+                        "order_id": "9a6e6d32-03be-4080-8c2e-9b59703a9956",
+                        "product_id": "24e43180-92d7-3298-97b9-e5d11669a39c"
+                    }
+                }
+            ]
+        }
+    ]
+}
+```
+
 
 ## 🤔 Como contribuir
 
