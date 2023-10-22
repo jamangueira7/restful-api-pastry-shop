@@ -14,6 +14,8 @@ class Order extends Model
     use SoftDeletes;
     use HasUuids;
 
+    protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
+
     public function Products(): BelongsToMany
     {
         return $this->belongsToMany(Product::class);

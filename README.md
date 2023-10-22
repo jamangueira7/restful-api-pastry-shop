@@ -73,22 +73,32 @@ As tabelas devem conter as seguintes informações:
 
 Retorno
 ```
-[
-  {
-    "id":"0a348bdd-99b2-3ae4-9d9a-ab94b5a05370",
-    "name":"NewellBechtelar",
-    "email":"igerhold@example.org",
-    "phone":"15035296454",
-    "birthday":"2005-04-26",
-    "address":"Hills Row",
-    "complement":"203",
-    "neighborhood":"port",
-    "zipcode":"03195-297",
-    "created_at":"2023-10-21T22:17:10.000000Z",
-    "updated_at":"2023-10-21T22:17:10.000000Z",
-    "deleted_at":null
-  }
-]
+{
+    "Clients": [
+        {
+            "id": "0a348bdd-99b2-3ae4-9d9a-ab94b5a05370",
+            "name": "Newell Bechtelar",
+            "email": "igerhold@example.org",
+            "phone": "15035296454",
+            "birthday": "2005-04-26",
+            "address": "Hills Row",
+            "complement": "203",
+            "neighborhood": "port",
+            "zipcode": "03195-297"
+        },
+        {
+            "id": "48ec2ae2-e230-3eda-abf2-ae8180f6d5dd",
+            "name": "Linwood Robel",
+            "email": "simonis.forest@example.net",
+            "phone": "14257928354",
+            "birthday": "1976-09-25",
+            "address": "Hansen Turnpike",
+            "complement": "75552",
+            "neighborhood": "ville",
+            "zipcode": "03195-636"
+        }
+    ]
+}
 ```
 
 
@@ -97,25 +107,120 @@ Retorno
 Retorno
 ```
 {
-  "id":"08f9357b-b3b5-3072-a30b-99412593a2c1",
-  "name":"Mabelle Franecki",
-  "email":"runolfsdottir.kathleen@example.com",
-  "phone":"14243894998",
-  "birthday":"1999-04-03",
-  "address":"Francis Lakes",
-  "complement":"68364",
-  "neighborhood":"furt",
-  "zipcode":"03195-296",
-  "created_at":"2023-10-21T22:08:11.000000Z",
-  "updated_at":"2023-10-21T22:08:11.000000Z",
-  "deleted_at":null
+    "Client": {
+        "id": "0a348bdd-99b2-3ae4-9d9a-ab94b5a05370",
+        "name": "Newell Bechtelar",
+        "email": "igerhold@example.org",
+        "phone": "15035296454",
+        "birthday": "2005-04-26",
+        "address": "Hills Row",
+        "complement": "203",
+        "neighborhood": "port",
+        "zipcode": "03195-297",
+        "created_at": "2023-10-21T22:17:10.000000Z",
+        "updated_at": "2023-10-21T22:47:26.000000Z",
+        "deleted_at": null
+    }
 }
 ```
 
 - **`DELETE api/client/id`**: Rota deletar um cliente;
 
+Retorno
+```
+{
+    "Client": {
+        "id": "0a348bdd-99b2-3ae4-9d9a-ab94b5a05370",
+        "name": "Newell Bechtelar",
+        "email": "igerhold@example.org",
+        "phone": "15035296454",
+        "birthday": "2005-04-26",
+        "address": "Hills Row",
+        "complement": "203",
+        "neighborhood": "port",
+        "zipcode": "03195-297"
+    }
+}
+```
+
+- **`PATCH api/client/id`**: Rota restaurar um cliente;
+
+Retorno
+```
+{
+    "Client": {
+        "id": "0a348bdd-99b2-3ae4-9d9a-ab94b5a05370",
+        "name": "Newell Bechtelar",
+        "email": "igerhold@example.org",
+        "phone": "15035296454",
+        "birthday": "2005-04-26",
+        "address": "Hills Row",
+        "complement": "203",
+        "neighborhood": "port",
+        "zipcode": "03195-297"
+    }
+}
+```
+
+- **`POST api/client`**: Rota para criar um cliente;
+
+Retorno
+```
+{
+    "Client": {
+        "name": "João Mangueira 2",
+        "email": "joao2@gmail.com",
+        "phone": "112345678",
+        "birthday": "1987-06-05",
+        "address": "Rua teste",
+        "complement": "325",
+        "neighborhood": "Teste",
+        "zipcode": "03195-033"
+    }
+}
+```
+
+- **`PUT api/client/id`**: Rota alterar um cliente;
+
+Retorno
+```
+{
+    "Client": {
+        "id": "9a6e2b3f-0775-435a-bee3-bc0293ed9052",
+        "name": "João Mangueira Alteradof",
+        "email": "joao@gmail.com",
+        "phone": "112345678",
+        "birthday": "1987-06-05",
+        "address": "Rua teste",
+        "complement": "325",
+        "neighborhood": "Teste",
+        "zipcode": "03195-033"
+    }
+}
+```
+
 - **`GET api/products`**: Rota listar produtos;
-- 
+
+Retorno
+```
+{
+    "Client": {
+        "id": "0a348bdd-99b2-3ae4-9d9a-ab94b5a05370",
+        "name": "Newell Bechtelar",
+        "email": "igerhold@example.org",
+        "phone": "15035296454",
+        "birthday": "2005-04-26",
+        "address": "Hills Row",
+        "complement": "203",
+        "neighborhood": "port",
+        "zipcode": "03195-297",
+        "created_at": "2023-10-21T22:17:10.000000Z",
+        "updated_at": "2023-10-21T22:47:26.000000Z",
+        "deleted_at": null
+    }
+}
+```
+
 - **`POST api/products`**: Rota restaurar produtos;
 
 Retorno

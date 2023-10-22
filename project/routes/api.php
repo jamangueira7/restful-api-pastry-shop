@@ -20,7 +20,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/clients', [ClientController::class, 'list']);
 Route::get('/client/{id}', [ClientController::class, 'show']);
 Route::delete('/client/{id}', [ClientController::class, 'delete']);
-Route::post('/client/{id}', [ClientController::class, 'restore']);
+Route::patch('/client/{id}', [ClientController::class, 'restore']);
+Route::post('/client', [ClientController::class, 'create']);
+Route::put('/client/{id}', [ClientController::class, 'update']);
 
 
 Route::get('/products', [ProductController::class, 'list']);

@@ -2,24 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Client;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Response;
+use App\Models\Client;
+use App\Http\Requests\ClientRequest;
+use Illuminate\Validation\Rule;
 
 class ClientController extends Controller
 {
-    public function list(Request $request): string
+    public function list(Request $request)
     {
-        return Client::all()->toJson();
+        $clients = Client::all();
+        return response()->json(["Clients" => $clients]);
     }
 
-    public function show(String $id, Request $request): string
+    public function show(String $id)
     {
-        return Client::find($id)->toJson();
+        $clients = Client::find($id);
+        return response()->json(["Client" => $clients]);
     }
 
-    public function delete(String $id, Request $request): bool
+    public function delete(String $id)
     {
         $client = Client::find($id);
 
@@ -28,10 +32,10 @@ class ClientController extends Controller
         }
 
         $client->delete();
-        return true;
+        return response()->json(["Client" => $client]);
     }
 
-    public function restore(String $id, Request $request): bool
+    public function restore(String $id)
     {
         $client = Client::withTrashed()->find($id);
 
@@ -40,6 +44,38 @@ class ClientController extends Controller
         }
 
         $client->restore();
-        return true;
+        return response()->json(["Client" => $client]);
+    }
+
+    public function create(ClientRequest $request)
+    {
+        $request->validated();
+
+        try {
+            $client = Client::create($request->all());
+        } catch (Exception $e) {
+            throw new Exception( $e->getMessage());
+        }
+
+        return response()->json(["Client" => $request->all()], 201);
+    }
+
+    public function update(String $id, ClientRequest $request)
+    {
+        $request->validated();
+
+        try {
+            $client = Client::find($id);
+
+            if(!$client) {
+                throw new Exception('Cliente não existe.');
+            }
+
+            $client->update($request->all());
+        } catch (Exception $e) {
+            throw new Exception( $e->getMessage());
+        }
+
+        return response()->json(["Client" => $client], 201);
     }
 }
