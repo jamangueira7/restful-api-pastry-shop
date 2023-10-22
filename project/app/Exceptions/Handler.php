@@ -31,6 +31,9 @@ class Handler extends ExceptionHandler
 
     public function render($request, Throwable $exception)
     {
+
+
+        dd($exception->getMessage());
         if($exception instanceof InvalidArgumentException) {
             return response()->json(["Internal Error" => $exception->getMessage()], 500);
         }

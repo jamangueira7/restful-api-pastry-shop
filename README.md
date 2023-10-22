@@ -26,6 +26,12 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 A necessidade é desenvolver uma API RESTFul para o gerenciamento de pedidos de uma pastelaria utilizando o framework Laravel/Lúmen.
 
+Envio e email:
+![img_1.png](.github%2Fimg_1.png)
+
+Criação das migrations e seeds:
+![img.png](.github%2Fimg.png)
+
 ### Sobre o projeto
 A API Restful deve contemplar os módulos Cliente, Produto e Pedido, sendo que cada um deverá conter endpoints CRUDL.
 
@@ -65,7 +71,25 @@ As tabelas devem conter as seguintes informações:
   - Clone o projeto.
   - Entre no repositório.
   - Rode `docker-compose up -d --build`
-  - Rode `php artisan `
+  - Entre na pasta `project` e rode `composer install`
+  - Caso o .env não tenha sido criado é nescessario configurar desse jeito:
+    DB_CONNECTION=mysql
+    DB_HOST=setup-mysql
+    DB_PORT=3306
+    DB_DATABASE=laravel
+    DB_USERNAME=user
+    DB_PASSWORD=password
+  - Para envio de email configure: (É preciso colocar um email valido em EmailConfirmation no metodo envelope())
+    MAIL_MAILER=smtp
+    MAIL_HOST=smtp.office365.com
+    MAIL_PORT=587
+    MAIL_USERNAME=SEU EMAIL
+    MAIL_PASSWORD=SUA SENHA
+    MAIL_ENCRYPTION=tls
+    MAIL_FROM_ADDRESS=SEU EMAIL
+    MAIL_FROM_NAME="Pastry shop"
+  - Rode `php artisan migrate:install` para gerar o banco.
+  - Rode `php artisan db:seed` para gerar dados fake para cliente e produtos.
 
 ## 👩🏿‍💻 Rotas
 
