@@ -88,7 +88,8 @@ As tabelas devem conter as seguintes informações:
     - MAIL_ENCRYPTION=tls
     - MAIL_FROM_ADDRESS=SEU EMAIL
     - MAIL_FROM_NAME="Pastry shop"
-  - Rode `php artisan migrate:install` para gerar o banco.
+  - Rode `php artisan migrate:install`.
+  - Rode `php artisan migrate:fresh` para gerar o banco.
   - Rode `php artisan db:seed` para gerar dados fake para cliente e produtos.
 
 ## 👩🏿‍💻 Rotas
