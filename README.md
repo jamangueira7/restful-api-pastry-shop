@@ -56,7 +56,7 @@ As tabelas devem conter as seguintes informações:
 
 ### Requisitos adicionais
 
-  - Testes unitários.
+  - [ ] Testes unitários.
   - [X] Dockerizar a aplicação
 
 ### Critérios de avaliação
