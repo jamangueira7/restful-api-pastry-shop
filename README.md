@@ -164,6 +164,20 @@ Retorno
 
 - **`POST api/client`**: Rota para criar um cliente;
 
+Envio
+```
+{
+    "name": "João Mangueira 2",
+    "email": "joao2@gmail.com",
+    "phone": "112345678",
+    "birthday": "1987-06-05",
+    "address": "Rua teste",
+    "complement": "325",
+    "neighborhood": "Teste",
+    "zipcode": "03195-033"
+}
+```
+
 Retorno
 ```
 {
@@ -181,6 +195,20 @@ Retorno
 ```
 
 - **`PUT api/client/id`**: Rota alterar um cliente;
+
+Envio
+```
+{
+    "name": "João Mangueira Alteradof",
+    "email": "joao@gmail.com",
+    "phone": "112345678",
+    "birthday": "1987-06-05",
+    "address": "Rua teste",
+    "complement": "325",
+    "neighborhood": "Teste",
+    "zipcode": "03195-033"
+}
+```
 
 Retorno
 ```
@@ -204,68 +232,126 @@ Retorno
 Retorno
 ```
 {
-    "Client": {
-        "id": "0a348bdd-99b2-3ae4-9d9a-ab94b5a05370",
-        "name": "Newell Bechtelar",
-        "email": "igerhold@example.org",
-        "phone": "15035296454",
-        "birthday": "2005-04-26",
-        "address": "Hills Row",
-        "complement": "203",
-        "neighborhood": "port",
-        "zipcode": "03195-297",
-        "created_at": "2023-10-21T22:17:10.000000Z",
-        "updated_at": "2023-10-21T22:47:26.000000Z",
-        "deleted_at": null
+    "Products": [
+        {
+            "id": "21fb9406-eb79-38c8-9709-cb8c3351f848",
+            "name": "Frango Mussarela",
+            "price": "9.23",
+            "photo": "pastel1.jpg"
+        },
+        {
+            "id": "3978c019-dd08-362c-b07a-65bb8ed3ee9a",
+            "name": "Frango Cheddar",
+            "price": "13.72",
+            "photo": "pastel0.jpg"
+        }
     }
-}
+}   
+```
+
+- **`GET api/product`**: Rota mostrar um produto;
+
+Retorno
+```
+{
+    "Product": {
+        "id": "21fb9406-eb79-38c8-9709-cb8c3351f848",
+        "name": "Frango Mussarela",
+        "price": "9.23",
+        "photo": "pastel1.jpg"
+    }
+}  
 ```
 
 - **`POST api/products`**: Rota restaurar produtos;
 
 Retorno
 ```
-[
-   {
-      "id":"21fb9406-eb79-38c8-9709-cb8c3351f848",
-      "name":"Frango Mussarela",
-      "price":"9.23",
-      "photo":"pastel1.jpg",
-      "created_at":"2023-10-21T22:17:10.000000Z",
-      "updated_at":"2023-10-21T22:17:10.000000Z",
-      "deleted_at":null
-   },
-   {
-      "id":"3978c019-dd08-362c-b07a-65bb8ed3ee9a",
-      "name":"Frango Cheddar",
-      "price":"13.72",
-      "photo":"pastel0.jpg",
-      "created_at":"2023-10-21T22:17:10.000000Z",
-      "updated_at":"2023-10-21T22:17:10.000000Z",
-      "deleted_at":null
-   }
-]
+{
+    "Product": {
+        "id": "21fb9406-eb79-38c8-9709-cb8c3351f848",
+        "name": "Frango Mussarela",
+        "price": "9.23",
+        "photo": "pastel1.jpg"
+    }
+}
 ```
-
-
-- **`GET api/product/id`**: Rota listar um produto;
+- **`DELETE api/product/id`**: Rota deletar um produto;
 
 Retorno
 ```
 {
-  "id":"1584461c-eff5-3993-bdb3-85a670f23019",
-  "name":"Frango Cheddar",
-  "price":"10.06",
-  "photo":"pastel1.jpg",
-  "created_at":"2023-10-21T22:08:11.000000Z",
-  "updated_at":"2023-10-21T22:08:11.000000Z",
-  "deleted_at":null
+    "Product": {
+        "id": "21fb9406-eb79-38c8-9709-cb8c3351f848",
+        "name": "Frango Mussarela",
+        "price": "9.23",
+        "photo": "pastel1.jpg"
+    }
 }
 ```
 
-- **`DELETE api/product/id`**: Rota deletar um produto;
+- **`PATCH api/product/id`**: Rota restaurar um produto;
 
-- **`POST api/product/id`**: Rota restaurar um produto;
+Retorno
+```
+{
+    "Product": {
+        "id": "21fb9406-eb79-38c8-9709-cb8c3351f848",
+        "name": "Frango Mussarela",
+        "price": "9.23",
+        "photo": "pastel1.jpg"
+    }
+}
+```
+
+- **`POST api/product/id`**: Rota criar um produto;
+
+Enviar
+```
+{
+    "Product": {
+        "name": "Portuguesa",
+        "price": "10.20",
+        "photo": FILE
+    }
+}
+```
+
+Retorno
+```
+{
+    "Product": {
+        "name": "Portuguesa",
+        "price": "10.20",
+        "photo": {}
+    }
+}
+```
+
+- **`PUT api/product/id`**: Rota alterar um produto;
+
+Enviar
+```
+{
+    "Product": {
+        "name": "Portuguesa Alterado",
+        "price": "10.23",
+        "photo": FILE
+    }
+}
+```
+
+Retorno
+```
+{
+    "Product": {
+        "name": "Portuguesa Alterado",
+        "price": "10.23",
+        "photo": "images/fa7rjwtYknR6L8heR8pSSPk5ZYLyss0G9WZI5Ltg.webp",
+        "id": "9a6e551b-6747-4c97-a346-f7d18211ba70"
+    }
+}
+```
 
 
 ## 🤔 Como contribuir

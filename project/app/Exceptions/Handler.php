@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use InvalidArgumentException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -30,6 +31,10 @@ class Handler extends ExceptionHandler
 
     public function render($request, Throwable $exception)
     {
+        if($exception instanceof InvalidArgumentException) {
+            return response()->json(["Internal Error" => $exception->getMessage()], 500);
+        }
+
         return response()->json(["Error" => $exception->errors()], 422);
     }
 }

@@ -28,4 +28,6 @@ Route::put('/client/{id}', [ClientController::class, 'update']);
 Route::get('/products', [ProductController::class, 'list']);
 Route::get('/product/{id}', [ProductController::class, 'show']);
 Route::delete('/product/{id}', [ProductController::class, 'delete']);
-Route::post('/product/{id}', [ProductController::class, 'restore']);
+Route::patch('/product/{id}', [ProductController::class, 'restore']);
+Route::post('/product', [ProductController::class, 'create']);
+Route::post('/product/{id}', [ProductController::class, 'update']);

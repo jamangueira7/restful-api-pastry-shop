@@ -4,10 +4,8 @@ namespace App\Http\Controllers;
 
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use App\Models\Client;
 use App\Http\Requests\ClientRequest;
-use Illuminate\Validation\Rule;
 
 class ClientController extends Controller
 {
@@ -76,6 +74,6 @@ class ClientController extends Controller
             throw new Exception( $e->getMessage());
         }
 
-        return response()->json(["Client" => $client], 201);
+        return response()->json(["Client" => $client]);
     }
 }

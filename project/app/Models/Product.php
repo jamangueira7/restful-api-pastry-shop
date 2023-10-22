@@ -16,6 +16,12 @@ class Product extends Model
 
     protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
 
+    protected $fillable = [
+        "name",
+        "price",
+        "photo"
+    ];
+
     public function Orders(): BelongsToMany
     {
         return $this->belongsToMany(Order::class);
