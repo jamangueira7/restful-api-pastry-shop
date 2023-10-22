@@ -43,21 +43,21 @@ As tabelas devem conter as seguintes informações:
 
 ### Requisitos
 
-  - Não devem existir dois clientes com o mesmo e-mail.
-  - O produto deve possuir foto.
-  - Os dados devem ser validados.
-  - O sistema deve conter uma série de tipos de produtos já definidos.
-  - O pedido deve contemplar N produtos.
-  - O cliente pode contemplar N pedidos.
-  - Após a criação do pedido o sistema deve disparar um e-mail para o cliente contendo os detalhes do seu pedido.
-  - Os registros devem conter a funcionalidade de soft deleting.
-  - Padronização PSR
-  - Nomenclatura de classes, métodos e rotas no padrão americano.
+  - [X] Não devem existir dois clientes com o mesmo e-mail.
+  - [X] O produto deve possuir foto.
+  - [X] Os dados devem ser validados.
+  - [X] O sistema deve conter uma série de tipos de produtos já definidos.
+  - [X] O pedido deve contemplar N produtos.
+  - [X] O cliente pode contemplar N pedidos.
+  - [X] Após a criação do pedido o sistema deve disparar um e-mail para o cliente contendo os detalhes do seu pedido.
+  - [X] Os registros devem conter a funcionalidade de soft deleting.
+  - [X] Padronização PSR
+  - [X] Nomenclatura de classes, métodos e rotas no padrão americano.
 
 ### Requisitos adicionais
 
   - Testes unitários.
-  - Dockerizar a aplicação
+  - [X] Dockerizar a aplicação
 
 ### Critérios de avaliação
 
@@ -73,21 +73,21 @@ As tabelas devem conter as seguintes informações:
   - Rode `docker-compose up -d --build`
   - Entre na pasta `project` e rode `composer install`
   - Caso o .env não tenha sido criado é nescessario configurar desse jeito:
-    DB_CONNECTION=mysql
-    DB_HOST=setup-mysql
-    DB_PORT=3306
-    DB_DATABASE=laravel
-    DB_USERNAME=user
-    DB_PASSWORD=password
+    - DB_CONNECTION=mysql
+    - DB_HOST=setup-mysql
+    - DB_PORT=3306
+    - DB_DATABASE=laravel
+    - DB_USERNAME=user
+    - DB_PASSWORD=password
   - Para envio de email configure: (É preciso colocar um email valido em EmailConfirmation no metodo envelope())
-    MAIL_MAILER=smtp
-    MAIL_HOST=smtp.office365.com
-    MAIL_PORT=587
-    MAIL_USERNAME=SEU EMAIL
-    MAIL_PASSWORD=SUA SENHA
-    MAIL_ENCRYPTION=tls
-    MAIL_FROM_ADDRESS=SEU EMAIL
-    MAIL_FROM_NAME="Pastry shop"
+    - MAIL_MAILER=smtp
+    - MAIL_HOST=smtp.office365.com
+    - MAIL_PORT=587
+    - MAIL_USERNAME=SEU EMAIL
+    - MAIL_PASSWORD=SUA SENHA
+    - MAIL_ENCRYPTION=tls
+    - MAIL_FROM_ADDRESS=SEU EMAIL
+    - MAIL_FROM_NAME="Pastry shop"
   - Rode `php artisan migrate:install` para gerar o banco.
   - Rode `php artisan db:seed` para gerar dados fake para cliente e produtos.
 
