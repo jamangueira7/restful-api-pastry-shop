@@ -25,7 +25,7 @@ class ProductController extends Controller
         $product = Product::find($id);
 
         if(!$product) {
-            throw new Exception('Produto não existe.');
+            throw new Exception('Produto não existe.', 400);
         }
 
         $product->delete();
@@ -37,7 +37,7 @@ class ProductController extends Controller
         $product = Product::withTrashed()->find($id);
 
         if(!$product) {
-            throw new Exception('Produto não está desativado.');
+            throw new Exception('Produto não está desativado.', 400);
         }
 
         $product->restore();
@@ -69,13 +69,13 @@ class ProductController extends Controller
             $product = Product::find($id);
 
             if(!$product) {
-                throw new Exception('Produto não existe.');
+                throw new Exception('Produto não existe.', 400);
             }
 
             $delete = Storage::disk('local')->delete($product->photo);
 
             if(!$delete) {
-                throw new Exception('A imagem não foi deletada.');
+                throw new Exception('A imagem não foi deletada.', 400);
             }
             $image = Storage::disk('local')->put("images", $request->file('photo'));
             $data = $request->all();

@@ -41,7 +41,8 @@ class OrderRequest extends FormRequest
             'string' => ':attribute precisa ser um texto.',
             'array' => ':attribute precisa ser uma lista.',
             'client_id.exists' => ':attribute não é um cliente valido.',
-            'products.exists' => 'Um dos IDs de :attribute não é um produto valido.',
+            'products.*.id.uuid' => 'O :attribute não é um UUID valido.',
+            'products.*.amount.integer' => 'O :attribute precisa ser um número inteiro.',
         ];
     }
 }

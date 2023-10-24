@@ -2,9 +2,13 @@
 
 namespace App\Exceptions;
 
+use BadFunctionCallException;
+use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Validation\ValidationException;
 use InvalidArgumentException;
 use Throwable;
+use function PHPUnit\Framework\isInstanceOf;
 
 class Handler extends ExceptionHandler
 {
@@ -31,13 +35,15 @@ class Handler extends ExceptionHandler
 
     public function render($request, Throwable $exception)
     {
-
-
-        dd($exception->getMessage(), $exception->getCode(),$exception->getFile(), $exception->getLine() );
         if($exception instanceof InvalidArgumentException) {
             return response()->json(["Internal Error" => $exception->getMessage()], 500);
         }
 
-        return response()->json(["Error" => $exception->errors()], 422);
+        if($exception instanceof ValidationException) {
+            return response()->json(["Error" => $exception->errors()], 422);
+        }
+
+        return response()->json(["Erro" => $exception->getMessage()], $exception->getCode());
+
     }
 }

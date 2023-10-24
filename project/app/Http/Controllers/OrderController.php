@@ -8,19 +8,27 @@ use App\Models\Client;
 use App\Models\Order;
 use App\Models\Product;
 use Exception;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\DB;
+
 class OrderController extends Controller
 {
     public function list(String $id)
     {
-        $oders = Order::where('client_id', $id)->get();
-        foreach ($oders as $order) {
-            $order->products;
+        try {
+            $orders = Order::where('client_id', $id)->get();
+
+            if($orders->isEmpty()) {
+                throw new Exception("Cliente não existe.", 400);
+            }
+            foreach ($orders as $order) {
+                $order->products;
+            }
+
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage(), $e->getCode());
         }
 
-        return response()->json(["Orders" => $oders]);
+        return response()->json(["Orders" => $orders]);
     }
 
     public function create(OrderRequest $request)
@@ -34,6 +42,9 @@ class OrderController extends Controller
             $product_db = [];
             foreach ($request->get('products') as $key=>$product) {
                 $product_db[] = Product::find($product['id']);
+                if( is_null($product_db[$key])) {
+                    throw new Exception("Produto não existe.", 400);
+                }
                 $total += floatval($product_db[$key]['price'] * $product['amount']);
             }
 
@@ -44,20 +55,28 @@ class OrderController extends Controller
             $order->save();
 
             foreach ($product_db as $key=>$product) {
-                $order->products()->attach($product['id'], ["amount" => $request->get('products')[$key]["amount"]]);
+                $order->products()
+                    ->attach(
+                        $product['id'],
+                        ["amount" => $request->get('products')[$key]["amount"]]
+                    );
             }
 
             $order->products;
 
-            Mail::to($client->email)->send(new EmailConfirmation($client->name, $order->id, $order->products->toArray(), $total));
+            Mail::to($client->email)
+                ->send(new EmailConfirmation(
+                    $client->name,
+                    $order->id,
+                    $order->products->toArray(),
+                    $total
+                ));
 
         } catch (Exception $e) {
 
-            throw new Exception( $e->getMessage());
+            throw new Exception($e->getMessage(), $e->getCode());
         }
 
         return response()->json(["Order" => $order], 201);
     }
-
-
 }

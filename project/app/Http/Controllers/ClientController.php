@@ -17,8 +17,8 @@ class ClientController extends Controller
 
     public function show(String $id)
     {
-        $clients = Client::find($id);
-        return response()->json(["Client" => $clients]);
+        $client = Client::find($id);
+        return response()->json(["Client" => $client]);
     }
 
     public function delete(String $id)
@@ -26,7 +26,7 @@ class ClientController extends Controller
         $client = Client::find($id);
 
         if(!$client) {
-            throw new Exception('Cliente não existe.');
+            throw new Exception('Cliente não existe.', 400);
         }
 
         $client->delete();
@@ -52,7 +52,7 @@ class ClientController extends Controller
         try {
             $client = Client::create($request->all());
         } catch (Exception $e) {
-            throw new Exception( $e->getMessage());
+            throw new Exception($e->getMessage());
         }
 
         return response()->json(["Client" => $request->all()], 201);
