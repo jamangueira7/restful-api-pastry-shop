@@ -383,11 +383,11 @@ Retorno
 Enviar
 ```
 {
-    "client_id": "0f2292fd-9f74-35f1-be8c-3a0926c109d8",
+    "client_id": "9a7119a4-e76a-402c-b9cc-eca465168ec6",
     "products": [
-        "17078cd9-28d9-327d-9240-ee167b09f8d0", 
-        "1e859d39-c103-3586-afb9-7fda729ed344", 
-        "24e43180-92d7-3298-97b9-e5d11669a39c"
+        {"id": "0c05c974-5242-3d10-b049-387337f84ee0", "amount": 1},
+        {"id": "43aebc92-d1fb-33dc-8d16-0905f0040128", "amount": 2},
+        {"id": "5dcaaf30-e6c2-3456-ac98-8c80047907dd", "amount": 2}
     ]
 }
 ```
@@ -396,38 +396,41 @@ Retorno
 ```
 {
     "Order": {
-        "client_id": "0f2292fd-9f74-35f1-be8c-3a0926c109d8",
-        "total": 34.42,
-        "id": "9a6e72fc-a176-461f-be17-99b107ba597b",
+        "client_id": "9a7119a4-e76a-402c-b9cc-eca465168ec6",
+        "total": 46.41,
+        "id": "9a711a95-0434-4032-a300-ab35f06ac58a",
         "products": [
             {
-                "id": "17078cd9-28d9-327d-9240-ee167b09f8d0",
-                "name": "Carne Mussarela",
-                "price": "13.56",
+                "id": "0c05c974-5242-3d10-b049-387337f84ee0",
+                "name": "Frango ",
+                "price": "8.87",
                 "photo": "pastel0.jpg",
                 "pivot": {
-                    "order_id": "9a6e72fc-a176-461f-be17-99b107ba597b",
-                    "product_id": "17078cd9-28d9-327d-9240-ee167b09f8d0"
+                    "order_id": "9a711a95-0434-4032-a300-ab35f06ac58a",
+                    "product_id": "0c05c974-5242-3d10-b049-387337f84ee0",
+                    "amount": 1
                 }
             },
             {
-                "id": "1e859d39-c103-3586-afb9-7fda729ed344",
-                "name": "Carne Cheddar",
-                "price": "10.42",
-                "photo": "pastel0.jpg",
+                "id": "43aebc92-d1fb-33dc-8d16-0905f0040128",
+                "name": "Frango Cheddar",
+                "price": "10.33",
+                "photo": "pastel1.jpg",
                 "pivot": {
-                    "order_id": "9a6e72fc-a176-461f-be17-99b107ba597b",
-                    "product_id": "1e859d39-c103-3586-afb9-7fda729ed344"
+                    "order_id": "9a711a95-0434-4032-a300-ab35f06ac58a",
+                    "product_id": "43aebc92-d1fb-33dc-8d16-0905f0040128",
+                    "amount": 2
                 }
             },
             {
-                "id": "24e43180-92d7-3298-97b9-e5d11669a39c",
-                "name": "Queijo Mussarela",
-                "price": "10.44",
+                "id": "5dcaaf30-e6c2-3456-ac98-8c80047907dd",
+                "name": "Calabresa ",
+                "price": "8.44",
                 "photo": "pastel0.jpg",
                 "pivot": {
-                    "order_id": "9a6e72fc-a176-461f-be17-99b107ba597b",
-                    "product_id": "24e43180-92d7-3298-97b9-e5d11669a39c"
+                    "order_id": "9a711a95-0434-4032-a300-ab35f06ac58a",
+                    "product_id": "5dcaaf30-e6c2-3456-ac98-8c80047907dd",
+                    "amount": 2
                 }
             }
         ]
@@ -453,7 +456,8 @@ Retorno
                     "photo": "pastel0.jpg",
                     "pivot": {
                         "order_id": "9a6e6d32-03be-4080-8c2e-9b59703a9956",
-                        "product_id": "17078cd9-28d9-327d-9240-ee167b09f8d0"
+                        "product_id": "17078cd9-28d9-327d-9240-ee167b09f8d0",
+                        "amount": 2
                     }
                 },
                 {
@@ -463,7 +467,8 @@ Retorno
                     "photo": "pastel0.jpg",
                     "pivot": {
                         "order_id": "9a6e6d32-03be-4080-8c2e-9b59703a9956",
-                        "product_id": "1e859d39-c103-3586-afb9-7fda729ed344"
+                        "product_id": "1e859d39-c103-3586-afb9-7fda729ed344",
+                        "amount": 2
                     }
                 },
                 {
@@ -473,7 +478,8 @@ Retorno
                     "photo": "pastel0.jpg",
                     "pivot": {
                         "order_id": "9a6e6d32-03be-4080-8c2e-9b59703a9956",
-                        "product_id": "24e43180-92d7-3298-97b9-e5d11669a39c"
+                        "product_id": "24e43180-92d7-3298-97b9-e5d11669a39c",
+                        "amount": 2
                     }
                 }
             ]

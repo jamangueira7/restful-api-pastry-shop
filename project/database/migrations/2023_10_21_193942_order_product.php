@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('order_product', function (Blueprint $table) {
             $table->uuid('order_id');
             $table->uuid('product_id');
+            $table->integer('amount');
             $table->primary(['order_id', 'product_id']);
             $table->timestamps();
 

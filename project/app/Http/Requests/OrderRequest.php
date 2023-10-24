@@ -23,7 +23,9 @@ class OrderRequest extends FormRequest
     {
         return [
             'client_id' => 'required|string|exists:clients,id',
-            'products' => 'required|array|exists:products,id'
+            'products' => 'required|array',
+            'products.*.id' => 'required|uuid',
+            'products.*.amount' => 'required|integer',
         ];
     }
 

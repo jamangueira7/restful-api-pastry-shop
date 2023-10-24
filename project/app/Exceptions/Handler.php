@@ -33,7 +33,7 @@ class Handler extends ExceptionHandler
     {
 
 
-        dd($exception->getMessage());
+        dd($exception->getMessage(), $exception->getCode(),$exception->getFile(), $exception->getLine() );
         if($exception instanceof InvalidArgumentException) {
             return response()->json(["Internal Error" => $exception->getMessage()], 500);
         }

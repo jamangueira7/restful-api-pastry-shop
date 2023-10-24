@@ -46,7 +46,7 @@ class EmailConfirmation extends Mailable
      */
     public function content(): Content
     {
-        return new Content(
+        date_default_timezone_set('America/Sao_Paulo');        return new Content(
             view: 'confirmation',
             with: [
                 'name' => $this->name,
